@@ -79,8 +79,17 @@ class CreateProject extends Component {
                       <label htmlFor="content">Project Content</label>
                   </div>
                   <div>
-                      <input type="file" onChange={this.handleChangeBackground}/>
-                      <br/>
+                      <div action="#">
+                          <div className="file-field input-field">
+                              <div className="btn">
+                                  <span>File</span>
+                                  <input type="file" onChange={this.handleChangeBackground}></input>
+                              </div>
+                              <div className="file-path-wrapper">
+                                  <input className="file-path validate" type="text"></input>
+                              </div>
+                          </div>
+                      </div>
                   </div>
                   <div className="input-field">
                       <button className="btn pink lighten-1">Create</button>

@@ -23,6 +23,45 @@ exports.projectCreated = functions.firestore
         return createNotification(notification);
 
     });
+exports.projectUpdate= functions.firestore
+    .document('projects/{projectId}')
+    .onUpdate((change, context) => {
+
+
+        // Get an object representing the document
+        // e.g. {'name': 'Marie', 'age': 66}
+        const newValue = change.after.data();
+
+        // ...or the previous value before this update
+        const previousValue = change.before.data();
+
+        // access a particular field as you would any JS property
+        // const name = newValue.name;
+
+        // perform desired operations ...
+        const notification = {
+            content: 'Update project',
+            user: `${previousValue.authorFirstName} ${previousValue.authorLastName}`,
+            time: admin.firestore.FieldValue.serverTimestamp()
+        }
+
+        return createNotification(notification);
+
+    });
+exports.projectDelete= functions.firestore
+    .document('projects/{projectId}')
+    .onDelete((snap, context) => {
+
+        const deletedValue = snap.data();
+        const notification = {
+            content: 'Delete project',
+            user: `${deletedValue.authorFirstName} ${deletedValue.authorLastName}`,
+            time: admin.firestore.FieldValue.serverTimestamp()
+        }
+
+        return createNotification(notification);
+
+    });
 
 exports.userJoined = functions.auth.user()
     .onCreate(user => {

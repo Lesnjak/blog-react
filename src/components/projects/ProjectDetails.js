@@ -8,10 +8,10 @@ import photo from '../../assets/no-photo.png'
 
 
 const ProjectDetails = (props) => {
-  console.log("---",props);
+  // console.log("---",props);
   
   const { project, auth } = props;
-  if (!auth.uid) return <Redirect to='/signin' /> 
+  if (!auth.uid) return <Redirect to='/signin'/>
   if (project) {
     return (
       <div className="container section project-details">

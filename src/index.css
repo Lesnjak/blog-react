@@ -76,6 +76,10 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
   height: 170px;
 
 }
+.card .card-title {
+  font-weight: bold;
+
+}
 .card .card-image {
   position: relative;
   height: 500px;
@@ -103,17 +107,98 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
   align-items: flex-start;
  }
 .box-button button{
-  padding: 5px;
+  padding:5px 7px;
   background-color: #ffffff;
   border: none;
   transition: 0.3s;
   cursor: pointer;
+  border-radius: 5px;
 
 }
+.hover{
+  transition: 0.3s;
+  color: #6b6b6b;
+
+}
+.radical{
+  color: #E57373 ;
+}
+.hover-text:hover{
+  color: #E57373 ;
+}
+.project-list .card:hover .card-title.hover-text{
+  color: #E57373 !important;
+}
+.project-list .card .card-image {
+  position: relative;
+}
+.project-list .card .card-image:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: transparent;
+  transition: 0.3s;
+  z-index: 1;
+}
+.project-list .card:hover .card-image:before {
+  background-color: #000;
+  opacity: 0.5;
+}
+
 .box-button button:hover{
   -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
 
+}
+.card .card-image-edit{
+  display: flex;
+  align-items: center;
+  height: auto;
+  flex-wrap: wrap;
+
+}
+
+
+.card-image-edit .half{
+width: 50%;
+  min-width: 350px;
+
+}
+.card-image-edit .half:last-child{
+  padding: 20px;
+
+}
+.btn, .btn-large, .btn-small {
+  background-color: #5a5a5a;
+
+}
+.flex-button{
+  display: flex;
+}
+.flex-button a{
+  flex: 1;
+}
+.pink.lighten-1 {
+  background-color: #ee6e73 !important;
+}
+.btn:hover, .btn-large:hover, .btn-small:hover {
+  background-color: #5a5a5a;
+opacity: 0.8;
+}
+textarea {
+  padding: 20px 20px 20px;
+  max-width: 100%;
+  resize: none;
+  outline: none;
+}
+textarea:focus {
+border-color:#E57373 ;
+}
+i.tiny {
+  font-size: 22px;
 }
 nav {
 
@@ -130,8 +215,14 @@ nav .input-field label i {
     margin: 10px;
     min-width: 250px;
   }
+  .card-image-edit .half{
+    width: 100%;
+    min-width: 0;
+
+  }
 
 }
+
 @media (max-width: 1160px) {
   .project-list .card{
     width:calc(50% - 20px);
@@ -147,6 +238,11 @@ nav .input-field label i {
   .card .card-image {
     position: relative;
     height: 300px;
+  }
+  .card .card-image-edit {
+    height: auto;
+    border-bottom: 1px solid #00000052;
+
   }
   .container {
     width: 100%;
