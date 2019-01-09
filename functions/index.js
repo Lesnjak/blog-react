@@ -41,7 +41,7 @@ exports.projectUpdate= functions.firestore
         // perform desired operations ...
         const notification = {
             content: 'Update project',
-            user: `${previousValue.authorFirstName} ${previousValue.authorLastName}`,
+            user: `${newValue.authorFirstName} ${newValue.authorLastName}`,
             time: admin.firestore.FieldValue.serverTimestamp()
         }
 

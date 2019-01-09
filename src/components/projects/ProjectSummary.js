@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 
 const ProjectSummary = ({project,auth}) => {
 
-    
   return (
       <div className="project-summary ">
           <Link to={'/project/' + project.id} className="card-image">
@@ -18,7 +17,7 @@ const ProjectSummary = ({project,auth}) => {
                       <span className="card-title hover-text hover">{project.title}</span>
                   </Link>
 
-                  {auth && <button >
+                  {project.authorId === auth.uid && <button >
                       <Link to={'/project/edit/' + project.id}  key={project.id}>
                           <i className="tiny material-icons hover-text hover">border_color</i>
                       </Link>

@@ -10,7 +10,7 @@ const projectReducer = (state = initState, action) => {
       return state;
       case 'UPDATE_PROJECT_SUCCESS':
           console.log('update-success');
-          return state;
+          return action.project;
       case 'UPDATE_PROJECT_ERROR':
           console.log('update-error');
           return state;
@@ -23,8 +23,7 @@ const projectReducer = (state = initState, action) => {
       case 'FILTER-BLOGS':
       return action.payload;
       case 'RESET-FILTER':
-        // console.log("---",555);
-          return '';
+          return action.payload;
     default:
       return state;
   }

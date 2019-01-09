@@ -11,20 +11,26 @@ import {blogFilter} from '../../store/actions/projectActions'
 
 
 
+
 class Dashboard extends Component {
+
 
   render() {
 
 
     const { projects, auth, notifications,blogFilter } = this.props;
-    if (!auth.uid) return <Redirect to='/signin' />
+
+
+    
+
+    // if (!auth.uid) return <Redirect to='/signin' />
 
     return (
       <div className="dashboard container">
         <div className="row">
           <div className="col s12">
               <SearchBar blogFilter={blogFilter} />
-            <ProjectList auth={auth} projects={projects} notifications={notifications}/>
+            <ProjectList auth={auth}  projects={projects} notifications={notifications}/>
           </div>
         </div>
       </div>
@@ -33,8 +39,8 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
-    // console.log("---",state);
-    
+// console.log("---",state.project);
+
   return {
     projects:state.project[0]
         ? state.firestore.ordered.projects.filter(project=>project.title.toUpperCase().includes(state.project.toUpperCase()))

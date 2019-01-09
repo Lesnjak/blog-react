@@ -11,15 +11,13 @@ export const createProject = (project) => {
       createdAt: new Date(),
       image:project.image
     }).then(() => {
-      dispatch({ type: 'UPDATE_PROJECT_SUCCESS' });
+      dispatch({ type: 'CREATE_PROJECT_SUCCESS' });
     }).catch(err => {
-      dispatch({ type: 'UPDATE_PROJECT_ERROR' }, err);
+      dispatch({ type: 'CREATE_PROJECT_ERROR' }, err);
     });
   }
 };
 export const changeProject = (project) => {
-    console.log("---",project);
-    
     return (dispatch, getState, {getFirestore}) => {
 
         const firestore = getFirestore();
@@ -29,11 +27,12 @@ export const changeProject = (project) => {
            title:project.title,
            content:project.content,
            image:project.image
-       }).then(() => {
-               dispatch({ type: 'DELETE_PROJECT_SUCCESS' });
+       }).then((c) => {
+               dispatch({ type: 'UPDATE_PROJECT_SUCCESS',c});
            }).catch(err => {
-               dispatch({ type: 'DELETE_PROJECT_ERROR' }, err);
+               dispatch({ type: 'UPDATE_PROJECT_ERROR' }, err);
            });
+
 
     }
 };
@@ -61,11 +60,10 @@ export const blogFilter = (search) => {
   }
 
 }
-export const resetFilter = () => {
-
-
+export const resetFilter = (a="") => {
     return {
         type: "RESET-FILTER",
+        payload: a
     }
 
 }

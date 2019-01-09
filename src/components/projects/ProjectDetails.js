@@ -5,13 +5,14 @@ import { compose } from 'redux'
 import { Redirect } from 'react-router-dom'
 import moment from 'moment'
 import photo from '../../assets/no-photo.png'
+import Map from '../map/Map'
 
 
 const ProjectDetails = (props) => {
   // console.log("---",props);
   
   const { project, auth } = props;
-  if (!auth.uid) return <Redirect to='/signin'/>
+  // if (!auth.uid) return <Redirect to='/signin'/>
   if (project) {
     return (
       <div className="container section project-details">
@@ -30,8 +31,10 @@ const ProjectDetails = (props) => {
             <div>{moment(project.createdAt.toDate()).calendar()}</div>
           </div>
         </div>
+                  <Map/>
       </div>
           </div>
+
       </div>
     )
   } else {

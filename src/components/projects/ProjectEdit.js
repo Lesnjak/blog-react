@@ -9,6 +9,8 @@ import Textarea from "react-textarea-autosize"
 import { changeProject } from '../../store/actions/projectActions'
 import { deleteProject } from '../../store/actions/projectActions'
 import {storage} from '../../config/fbConfig'
+import {resetFilter} from '../../store/actions/projectActions'
+import firebase from '../../config/fbConfig'
 
 
 class ProjectEdit extends Component{
@@ -37,6 +39,7 @@ class ProjectEdit extends Component{
         e.preventDefault();
         // console.log(this.state);
         this.handleUploadBackground();
+        // this.props.resetFilter();
     }
     handleUploadBackground = () => {
         const {image} = this.state;
@@ -55,6 +58,7 @@ class ProjectEdit extends Component{
                     })
                     this.props.changeProject(this.state);
                     this.props.history.push('/');
+
 
 
 
@@ -152,7 +156,8 @@ const mapStateToProps = (state, ownProps) => {
 }
 const mapDispatchToProps = {
 changeProject,
-deleteProject
+deleteProject,
+    resetFilter
 }
 export default compose(
     connect(mapStateToProps,mapDispatchToProps),
